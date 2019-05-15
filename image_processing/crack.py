@@ -4,6 +4,36 @@ import scipy.ndimage
 
 test = 'test1.jpg'
 
+def display (image, desc):
+    cv2.imshow(desc, image)
+    cv2.waitKey(0)
+
+def skeletonize(gray_img):
+    """ OpenCV function to return a skeletonized version of img, a Mat object"""
+
+    #  hat tip to http://felix.abecassis.me/2011/09/opencv-morphological-skeleton/
+
+    img = gray_img.copy() # don't clobber original
+    skel = gray_img.copy()
+    print("1")
+
+    skel[:, :] = 0
+    kernel = cv2.getStructuringElement(cv2.MORPH_CROSS, (3,3))
+    print("2")
+
+
+    while True:
+        eroded = cv2.morphologyEx(img, cv2.MORPH_ERODE, kernel)
+        temp = cv2.morphologyEx(eroded, cv2.MORPH_DILATE, kernel)
+        temp = cv2.subtract(gray_img, temp)
+        print("3")
+        skel = cv2.bitwise_or(skel, temp)
+        img [:,:] = eroded[:,:]
+        if cv2.countNonZero(eroded) == 0:
+           break
+
+    return skel
+
 ####### load coloured image##########
 
 img = cv2.imread(test, 1)
@@ -36,18 +66,9 @@ cv2.waitKey(0)
 img_blur = cv2.GaussianBlur(img_contStretched, (5, 5), 0)
 cv2.imshow('Gaussian blur', img_blur)
 cv2.waitKey(0)
-
-'''#gaussian blur- original
-img_sub=cv2.subtract(img_blur,img_contStretched)
-
-cv2.imshow('Gaussian blur- original', img_sub)
-cv2.waitKey(0)'''
 img_sub = img_blur
 
-
-
 ########edge detection ############
-
 
 # compute the median of the single channel pixel intensities
 v = np.median(img_sub)
@@ -68,26 +89,25 @@ eroded = cv2.erode(dilated, kernel)
 cv2.imshow('closed edged', eroded)
 cv2.waitKey(0)
 
+'''
+img_skel=skeletonize(eroded)
+cv2.imshow('skeleton edged', img_skel)
+cv2.waitKey(0)'''
 
 contours, hierarchy = cv2.findContours(eroded, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-
-'''maxarea=0
-for c in contours:
-    area= cv2.contourArea(c)
-    if area > maxarea:
-        maxarea = area
-        maxcont = c'''
-
 img_con=cv2.drawContours(img, contours, -1, (0,255,0), -1)
 cv2.imshow('contours', img_con)
 cv2.waitKey(0)
 
 
+
+
+
+'''
 print("lengths are - \n")
 for c in contours:
     p = cv2.arcLength(c, False)
-    print (p)
-
+    print (p)'''
 
 
 
