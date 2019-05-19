@@ -48,12 +48,18 @@ def fillContours(image):
     return eroded
 
 def getContours(image):
-    contours, hierarchy = cv2.findContours(image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+    # Perform morphology
+    se = np.ones((7, 7), dtype='uint8')
+    image_close = cv2.morphologyEx(image, cv2.MORPH_CLOSE, se)
+    contours, hierarchy = cv2.findContours(image_close, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
     return contours
 
-def drawContours(image,on,contours):
-    drawn = cv2.drawContours(on, contours, -1, (0, 255, 0), -1)
-    return  drawn
+def drawContours(on,contours):
+    mask = np.zeros(on.shape[:3], np.uint8)
+    draw = cv2.drawContours(mask, contours, -1, (0,255,0), 1)
+    #drawn = cv2.drawContours(on, draw, -1, (0, 255, 0), cv2.FILLED)
+    drawn = cv2.bitwise_or(on, draw)
+    return drawn
 
 def preProcessing(test):
     # load coloured image
@@ -74,6 +80,23 @@ def preProcessing(test):
 
     return img_blur
 
+def areaContour(contours,img_con):
+    id= 0
+    image=img_con
+    for contour in contours:
+        area= cv2.contourArea(contour)
+        id=id+1
+        # compute the center of the contour
+        M = cv2.moments(contour)
+        cX = int(M["m10"] / M["m00"])
+        cY = int(M["m01"] / M["m00"])
+        image = cv2.putText(image, str(id), (cX,cY), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2, cv2.LINE_AA)
+        print("Contour ", id, "  area ", area)
+
+    if id==0:
+        print("no contour")
+
+    return image
 
 test = 'test1.jpg'
 preProcessed = preProcessing(test)
@@ -83,23 +106,55 @@ img_edged = cannyEdge(preProcessed)
 display(img_edged, 'edge detected image')
 
 # Close/fill the contours
-img_filled = fillContours(img_edged)
-display(img_filled, 'filled contours')
+img_filled= img_edged
+'''img_filled = fillContours(img_edged)
+display(img_filled, 'filled contours')'''
 
 # Draw contour
 contours=getContours(img_filled)
-img_con = drawContours(img_filled, read(test, 1),contours)
+img_con = drawContours(read(test, 1),contours)
 display(img_con, 'detected cracks')
 
 
-#Find the index of the largest contour
-if len(contours) != 0:
-    #find the biggest area
-    c = max(contours, key = cv2.contourArea)
+# for chips
+areaContour(contours, img_con)
+display(img_con, 'areas')
 
-    x,y,w,h = cv2.boundingRect(c)
-    # draw the book contour (in green)
-    max_cont=cv2.rectangle(read(test,1),(x,y),(x+w,y+h),(0,255,0),2)
+#differentite crack and chip
+'''se = np.ones((7, 7), dtype='uint8')
+image_close = cv2.morphologyEx(img_filled, cv2.MORPH_CLOSE, se)
+contours, hierarchy = cv2.findContours(image_close, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+img_ex = drawContours(img_filled, read(test, 1),contours)
+display(img_ex, 'external boundry')'''
+co=0
+for c in contours:
+    if cv2.contourArea(c)>100:
+        co=co+1
+        print ("co",co)
+        hull = cv2.convexHull(c, returnPoints=False)
+        defects = cv2.convexityDefects(c, hull)
 
-    display(max_cont,'largest chip')
+        if defects is not  None:
+            line=0
+            cir=0
+            for i in range(defects.shape[0]):
+                s, e, f, d = defects[i, 0]
+                start = tuple(c[s][0])
+                end = tuple(c[e][0])
+                far = tuple(c[f][0])
+                cv2.line(img_con, start, end, [0, 255, 0], 1)
+                line=line+1
+                print ("line", line)
+                cv2.circle(img_con, far, 2, [0, 0, 255], -1)
+                cir=cir+1
+                print ("circle", cir)
+
+
+
+
+
+cv2.imshow('hull',img_con)
+cv2.waitKey(0)
+
+
 
