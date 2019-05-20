@@ -58,8 +58,8 @@ def drawContours(on,contours):
     return drawn
 
 def scale(img):
-    xs= img.shape[1]*0.3
-    ys=img.shape[0]*0.3
+    xs= img.shape[1]*1
+    ys=img.shape[0]*1
     img_scale = cv2.resize(img, (int(xs),int(ys)), interpolation=cv2.INTER_AREA)
     return img_scale
 
@@ -104,8 +104,8 @@ def areaContour(contours,img_con):
 
 
 
-
-test = 'sample/test3.jpg'
+#put input image here
+test = 'net/test1.jpg'
 preProcessed = preProcessing(test)
 
 

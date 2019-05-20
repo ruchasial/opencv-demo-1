@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b70c7bd5-f47f-4e08-88ae-259b5fc0be14" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_processing/crack.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/image_processing/detect.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_processing/detect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_processing/test2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_processing/test3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_processing/watch.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_processing/test.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_processing/test1.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,8 +49,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/image_processing/detect.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-465">
-              <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+            <state relative-caret-position="194">
+              <caret line="118" column="33" lean-forward="true" selection-start-line="118" selection-start-column="33" selection-end-line="118" selection-end-column="33" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -107,12 +108,6 @@
               <item name="opencv-demo-1" type="462c0819:PsiDirectoryNode" />
               <item name="image_processing" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="opencv-demo-1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="opencv-demo-1" type="462c0819:PsiDirectoryNode" />
-              <item name="image_processing" type="462c0819:PsiDirectoryNode" />
-              <item name="sample" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -168,7 +163,14 @@
       <option name="project" value="LOCAL" />
       <updated>1557946690676</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="20th may&#10;working code for crack detection&#10;for loops require optimization">
+      <created>1558357499972</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1558357499972</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -194,20 +196,48 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32921174" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32868218" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49921754" visible="true" weight="0.24651162" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49921754" weight="0.24651162" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007825" side_tool="true" weight="0.28372094" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32921174" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32868218" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" x="0" y="0" width="275" height="580" id="Documentation" order="3" side_tool="true" weight="0.32988048" />
     </layout>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="12th may sunday" />
     <MESSAGE value="15th may" />
-    <option name="LAST_COMMIT_MESSAGE" value="15th may" />
+    <MESSAGE value="20th may&#10;working code for crack detection&#10;for loops require optimization" />
+    <MESSAGE value="20th may" />
+    <option name="LAST_COMMIT_MESSAGE" value="20th may" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -237,6 +267,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/-112291789/cv2/cv2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="9245" column="4" selection-start-line="9245" selection-start-column="4" selection-end-line="9245" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/image_processing/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -257,17 +294,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/-112291789/cv2/cv2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
-          <caret line="9245" column="4" selection-start-line="9245" selection-start-column="4" selection-end-line="9245" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/image_processing/detect.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-465">
-          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+        <state relative-caret-position="194">
+          <caret line="118" column="33" lean-forward="true" selection-start-line="118" selection-start-column="33" selection-end-line="118" selection-end-column="33" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
