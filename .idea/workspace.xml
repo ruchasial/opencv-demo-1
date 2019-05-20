@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/image_processing/detect.py" description="display(img_con, 'detected cracks')" line="122" />
+    <bookmark url="file://$PROJECT_DIR$/image_processing/detect.py" description="display(img_con, 'detected cracks')" line="154" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b70c7bd5-f47f-4e08-88ae-259b5fc0be14" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_processing/crack.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/image_processing/detect.py" beforeDir="false" afterPath="$PROJECT_DIR$/image_processing/detect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_processing/test.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image_processing/test1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image_processing/net/chip.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image_processing/net/chip.jpg" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,11 +47,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/image_processing/detect.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="118" column="33" lean-forward="true" selection-start-line="118" selection-start-column="33" selection-end-line="118" selection-end-column="33" />
+            <state relative-caret-position="332">
+              <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/-112291789/cv2/cv2/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108510">
+              <caret line="7249" column="4" selection-start-line="7249" selection-start-column="4" selection-end-line="7249" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -70,6 +77,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>img1</find>
+      <find>scale</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -96,6 +104,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -112,7 +121,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -170,10 +178,24 @@
       <option name="project" value="LOCAL" />
       <updated>1558357499972</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="20th may">
+      <created>1558359193319</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1558359193319</updated>
+    </task>
+    <task id="LOCAL-00006" summary="20th may&#10;&#10;images">
+      <created>1558359387257</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1558359387257</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
-  <component name="TodoView">
+  <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -183,9 +205,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1303" height="780" extended-state="6" />
+    <frame x="65" y="-4" width="1301" height="772" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4978355" visible="true" weight="0.15805946" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4978355" visible="true" weight="0.15526518" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5021645" side_tool="true" weight="0.15571205" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -194,11 +217,11 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32921174" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32868218" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49921754" weight="0.24651162" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007825" side_tool="true" weight="0.28372094" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32868218" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49843505" weight="0.32868218" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4976526" weight="0.32868218" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49577248" visible="true" weight="0.24550898" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5042275" side_tool="true" weight="0.24550898" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49921754" weight="0.32868218" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -230,6 +253,20 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
@@ -237,18 +274,8 @@
     <MESSAGE value="15th may" />
     <MESSAGE value="20th may&#10;working code for crack detection&#10;for loops require optimization" />
     <MESSAGE value="20th may" />
-    <option name="LAST_COMMIT_MESSAGE" value="20th may" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/image_processing/detect.py</url>
-          <line>6</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="20th may&#10;&#10;images" />
+    <option name="LAST_COMMIT_MESSAGE" value="20th may&#10;&#10;images" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.4/site-packages/cv2/__init__.py">
@@ -264,13 +291,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="5047" column="8" selection-start-line="5047" selection-start-column="8" selection-end-line="5047" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/-112291789/cv2/cv2/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
-          <caret line="9245" column="4" selection-start-line="9245" selection-start-column="4" selection-end-line="9245" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -294,10 +314,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2018.3/system/python_stubs/-112291789/cv2/cv2/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108510">
+          <caret line="7249" column="4" selection-start-line="7249" selection-start-column="4" selection-end-line="7249" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/image_processing/detect.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="118" column="33" lean-forward="true" selection-start-line="118" selection-start-column="33" selection-end-line="118" selection-end-column="33" />
+        <state relative-caret-position="332">
+          <caret line="207" lean-forward="true" selection-start-line="207" selection-end-line="207" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
