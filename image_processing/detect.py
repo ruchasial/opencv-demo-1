@@ -23,14 +23,12 @@ def contrast_stretching (image):
     return  img_contStretched
 
 def gaussianBlur(image):
-
     img_blur = cv2.GaussianBlur(image, (5, 5), 0)
-    return  img_blur
+    return img_blur
 
 def cannyEdge (image):
     # compute the median of the single channel pixel intensities
     v = np.median(image)
-
     # apply automatic Canny edge detection using the computed median
     sigma = 0.33
     lower = int(max(0, (1.0 - sigma) * v))
@@ -41,7 +39,6 @@ def cannyEdge (image):
 
 #dilate + erode image contours
 def fillContours(image):
-
     kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (9, 9))
     dilated = cv2.dilate(img_edged, kernel)
     eroded = cv2.erode(dilated, kernel)
@@ -57,17 +54,24 @@ def getContours(image):
 def drawContours(on,contours):
     mask = np.zeros(on.shape[:3], np.uint8)
     draw = cv2.drawContours(mask, contours, -1, (0,255,0), 1)
-    #drawn = cv2.drawContours(on, draw, -1, (0, 255, 0), cv2.FILLED)
     drawn = cv2.bitwise_or(on, draw)
     return drawn
+
+def scale(img):
+    xs= img.shape[1]*0.3
+    ys=img.shape[0]*0.3
+    img_scale = cv2.resize(img, (int(xs),int(ys)), interpolation=cv2.INTER_AREA)
+    return img_scale
 
 def preProcessing(test):
     # load coloured image
     img_colour = read(test, 1)
+    img_colour = scale(img_colour)
     display(img_colour, 'original image')
 
     # Load grayscale image
     img_gray = read(test, 0)
+    img_gray = scale(img_gray)
     display(img_gray, 'grayscale image')
 
     # contrast stretching
@@ -81,11 +85,11 @@ def preProcessing(test):
     return img_blur
 
 def areaContour(contours,img_con):
-    id= 0
-    image=img_con
+    id = 0
+    image = img_con
     for contour in contours:
-        area= cv2.contourArea(contour)
-        id=id+1
+        area = cv2.contourArea(contour)
+        id = id+1
         # compute the center of the contour
         M = cv2.moments(contour)
         cX = int(M["m10"] / M["m00"])
@@ -98,27 +102,33 @@ def areaContour(contours,img_con):
 
     return image
 
-test = 'test1.jpg'
+
+
+
+test = 'sample/test3.jpg'
 preProcessed = preProcessing(test)
+
+
+#########cracks###########
 
 # Canny edge detection
 img_edged = cannyEdge(preProcessed)
 display(img_edged, 'edge detected image')
 
-# Close/fill the contours
-img_filled= img_edged
-'''img_filled = fillContours(img_edged)
-display(img_filled, 'filled contours')'''
-
 # Draw contour
-contours=getContours(img_filled)
-img_con = drawContours(read(test, 1),contours)
+contours = getContours(img_edged)
+draw = read(test, 1)
+draw = scale(draw)
+img_con = drawContours(draw, contours)
 display(img_con, 'detected cracks')
 
+#######chips###########
 
+'''
 # for chips
 areaContour(contours, img_con)
 display(img_con, 'areas')
+'''
 
 #differentite crack and chip
 '''se = np.ones((7, 7), dtype='uint8')
@@ -126,6 +136,9 @@ image_close = cv2.morphologyEx(img_filled, cv2.MORPH_CLOSE, se)
 contours, hierarchy = cv2.findContours(image_close, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 img_ex = drawContours(img_filled, read(test, 1),contours)
 display(img_ex, 'external boundry')'''
+
+'''
+
 co=0
 for c in contours:
     if cv2.contourArea(c)>100:
@@ -156,5 +169,5 @@ for c in contours:
 cv2.imshow('hull',img_con)
 cv2.waitKey(0)
 
-
+'''
 
